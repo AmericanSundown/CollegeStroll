@@ -2,11 +2,11 @@
 //create_cat.php
 include 'connect.php';
 include 'header.php';
-         
+
 $sql = "SELECT *  FROM categories";
- 
+
 $result = mysql_query($sql);
- 
+
 if(!$result)
 {
     echo 'The categories could not be displayed, please try again later.';
@@ -24,10 +24,10 @@ else
               <tr>
                 <th>Category</th>
                 <th>Last topic</th>
-              </tr>'; 
-             
+              </tr>';
+
         while($row = mysql_fetch_assoc($result))
-        {               
+        {
             echo '<tr>';
                 echo '<td class="leftpart">';
                     echo '<h3><a href="category.php?id">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
@@ -39,6 +39,6 @@ else
         }
     }
 }
- 
+
 include 'footer.php';
 ?>

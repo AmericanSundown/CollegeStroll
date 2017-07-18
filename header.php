@@ -1,54 +1,50 @@
-<?php
-  session_start();
-?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="A short description." />
-    <meta name="keywords" content="put, keywords, here" />
-    <title>CarrerStroll</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <!--Bootstrap CDN-->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {margin: 0;}
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}
+</style>
 </head>
 <body>
-    <div id="wrapper">
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="http://localhost/CollegeStroll">CollegeStroll</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="inactive"><a href="#">Home</a></li>
-     <li class="inactive"><a href="http://localhost/CollegeStroll/index.php">Categories</a></li>
-      <li class="inactive"><a href="http://localhost/CollegeStroll/create_cat.php">Add Categories</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-    <li>
-            <form class="navbar-form navbar-left">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-    </li>
+<div id="wrapper">
 
-      <li><a href="http://localhost/collegegasm/logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-    </ul>
-  </div>
-</nav>
-        <div id="content">
+<ul class="topnav">
+  <li><a class="active" href="http://localhost/collegestroll/index.php">CollegeStroll</a></li>
+  <li><a href="http://localhost/collegestroll/create_cat.php">Add Category</a></li>
+  <li><a href="http://localhost/collegestroll/create_col.php">Add College</a></li>
+  <li class="right"><a href="#about">About</a></li>
+</ul>
+
+<div id="content">
