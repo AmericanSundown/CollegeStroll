@@ -3,7 +3,7 @@
 //create_cat.php
 include 'connect.php';
 include 'header.php';
- 
+
 //first select the category based on $_GET['cat_id']
 $sql = "SELECT
             cat_id,
@@ -13,9 +13,9 @@ $sql = "SELECT
             categories
         WHERE
             cat_id = " . mysql_real_escape_string($_GET['id']);
- 
+
 $result = mysql_query($sql);
- 
+
 if(!$result)
 {
     echo 'The category could not be displayed, please try again later.' . mysql_error();
@@ -33,9 +33,9 @@ else
         {
             echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
         }
-     
+
         //do a query for the topics
-        $sql = "SELECT  
+        $sql = "SELECT
                     topic_id,
                     topic_subject,
                     topic_date,
@@ -44,9 +44,9 @@ else
                     topics
                 WHERE
                     topic_cat = " . mysql_real_escape_string($_GET['id']);
-         
+
         $result = mysql_query($sql);
-         
+
         if(!$result)
         {
             echo 'The topics could not be displayed, please try again later.';
@@ -64,10 +64,10 @@ else
                       <tr>
                         <th>Topic</th>
                         <th>Created at</th>
-                      </tr>'; 
-                     
+                      </tr>';
+
                 while($row = mysql_fetch_assoc($result))
-                {               
+                {
                     echo '<tr>';
                         echo '<td class="leftpart">';
                             echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
@@ -81,6 +81,6 @@ else
         }
     }
 }
- 
+
 include 'footer.php';
 ?>

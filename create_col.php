@@ -6,7 +6,7 @@
 -->
 <html>
     <head>
-        <title>CollegeStroll | Create Categories</title>
+        <title>CollegeStroll | Create College</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -31,7 +31,10 @@ include 'header.php';
 if($_SESSION['signed_in'] == false)
 {
     //the user is not signed in
-    echo 'Sorry, you have to be <a href="http://localhost/collegestroll/signin.php">signed in</a> to create a topic.';
+    echo '
+    <article class="container box style3">
+    Sorry, you have to be <a href="http://localhost/collegestroll/signin.php">signed in</a> to create a topic.
+    </article>';
 }
 else
 {
@@ -47,7 +50,10 @@ else
         if(!$result)
         {
             //the query failed, uh-oh :-(
-            echo 'Error while selecting from database. Please try again later.';
+            echo '
+            <article class="container box style3">
+            Error while selecting from database. Please try again later.
+            </article>';
         }
         else
         {
@@ -56,34 +62,50 @@ else
                 //there are no categories, so a topic can't be posted
                 if($_SESSION['user_level'] == 1)
                 {
-                    echo 'You have not created categories yet.';
+                    echo '
+                    <article class="container box style3">
+                    You have not created categories yet.
+                    </article>';
                 }
                 else
                 {
-                    echo 'Before you can post a topic, you must wait for an admin to create some categories.';
+                    echo '
+                    <article class="container box style3">
+                    Before you can post a topic, you must wait for an admin to create some categories.
+                    </article>';
                 }
             }
             else
             {
 
-                echo '<form method="post" action="">
-                    College: <input type="text" name="topic_subject" />';
-                echo 'Location: <input type="text" name="topic_location" />';
-                echo 'Phone: <input type="text" name="topic_phone"/>';
-                echo 'Website: <input type="text" name="topic_website"/>';
+                echo '<article class="container box style3">
+                      <header>
+                      <h2>Create College</h2>
+                      <p>Enter the details to create a college</p>
+                      </header>
+                      <form method="post" action="">
+                      <div class="row 50%">
+                      <div class="6u 12u$(mobile)"><input type="text" name="topic_subject" placeholder="College"/></div>
+                      <div class="6u 12u$(mobile)"><input type="text" name="topic_location" placeholder="Location"/></div>
+                      <div class="6u 12u$(mobile)"><input type="text" name="topic_phone" placeholder="Phone"/></div>
+                      <div class="6u 12u$(mobile)"><input type="text" name="topic_website" placeholder="Website"/></div>';
 
-                echo'Category:';
 
-                echo '<select name="topic_cat">';
+
+                echo '<div class="12u$"><select name="topic_cat">';
                     while($row = mysql_fetch_assoc($result))
                     {
                         echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
                     }
-                echo '</select>';
+                echo '</select></div>';
 
-                echo 'Description: <textarea name="post_content" /></textarea>
-                    <input type="submit" value="Create topic" />
-                 </form>';
+                echo '<div class="12u$"><textarea name="post_content" placeholder="Description"/></textarea></div>
+                      <div class="12u$">
+                      <ul class="actions">
+                      <li><input type="submit" value="Create topic" /></li>
+                      </ul>
+                      </form>
+                      </article>';
             }
         }
     }
@@ -96,7 +118,10 @@ else
         if(!$result)
         {
             //Damn! the query failed, quit
-            echo 'An error occured while creating your topic. Please try again later.';
+            echo '
+            <article class="container box style3">
+            An error occured while creating your topic. Please try again later.
+            </article>';
         }
         else
         {
@@ -121,7 +146,9 @@ else
             if(!$result)
             {
                 //something went wrong, display the error
-                echo 'An error occured while inserting your data. Please try again later.' . mysql_error();
+                echo '
+                <article class="container box style3">
+                An error occured while inserting your data. Please try again later.' . mysql_error().'</article>';
                 $sql = "ROLLBACK;";
                 $result = mysql_query($sql);
             }
@@ -147,7 +174,9 @@ else
                 if(!$result)
                 {
                     //something went wrong, display the error
-                    echo 'An error occured while inserting your post. Please try again later.' . mysql_error();
+                    echo '
+                    <article class="container box style3">
+                    An error occured while inserting your post. Please try again later.' . mysql_error().'</article>';
                     $sql = "ROLLBACK;";
                     $result = mysql_query($sql);
                 }
@@ -157,7 +186,9 @@ else
                     $result = mysql_query($sql);
 
                     //after a lot of work, the query succeeded!
-                    echo 'You have successfully created <a href="topic.php?id='. $topicid . '">your new topic</a>.';
+                    echo '
+                    <article class="container box style3">
+                    You have successfully created <a href="topic.php?id='. $topicid . '">your new College</a>.</article>';
                 }
             }
         }
