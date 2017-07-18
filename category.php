@@ -18,32 +18,34 @@ $result = mysql_query($sql);
 
 if(!$result)
 {
-    echo 'The category could not be displayed, please try again later.' . mysql_error();
+    echo '<article class="container box style3">The category could not be displayed, please try again later.' . mysql_error().'</article>';
 }
 else
 {
     if(mysql_num_rows($result) == 0)
     {
-        echo 'This category does not exist.';
+        echo '<article class="container box style3">This category does not exist.</article>';
     }
     else
     {
         //display category data
         while($row = mysql_fetch_assoc($result))
         {
-            echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
+            echo '<article class="container box style3"><h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
         }
 
         //do a query for the topics
         $sql = "SELECT
-                    topic_id,
-                    topic_subject,
-                    topic_date,
-                    topic_cat
+                    col_id,
+                    col_name,
+                    col_location,
+                    col_phone,
+                    col_website,
+                    col_cat
                 FROM
-                    topics
+                    colleges
                 WHERE
-                    topic_cat = " . mysql_real_escape_string($_GET['id']);
+                    col_cat = " . mysql_real_escape_string($_GET['id']);
 
         $result = mysql_query($sql);
 
@@ -63,17 +65,17 @@ else
                 echo '<table border="1">
                       <tr>
                         <th>Topic</th>
-                        <th>Created at</th>
+                        <th>Address</th>
                       </tr>';
 
                 while($row = mysql_fetch_assoc($result))
                 {
                     echo '<tr>';
                         echo '<td class="leftpart">';
-                            echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
+                            echo '<h3><a href="topic.php?id=' . $row['col_id'] . '">' . $row['col_name'] . '</a><h3>';
                         echo '</td>';
                         echo '<td class="rightpart">';
-                            echo date('d-m-Y', strtotime($row['topic_date']));
+                            echo($row['col_location']);
                         echo '</td>';
                     echo '</tr>';
                 }
