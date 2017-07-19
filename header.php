@@ -44,7 +44,8 @@ ul.topnav li.right {float: right;}
   <li><a class="active" href="http://localhost/collegestroll/index.php">CollegeStroll</a></li>
   <li><a href="http://localhost/collegestroll/create_cat.php">Add Category</a></li>
   <li><a href="http://localhost/collegestroll/create_col.php">Add College</a></li>
-  <li class="right"><a href="#about">About</a></li>
+  <li><a href="http://localhost/collegestroll/signout.php">Sign Out</a></li>
+  <li class="right"><a href="http://localhost/collegestroll//about-us-19//portfolio.html">About</a></li>
 </ul>
 
 <div id="content">
