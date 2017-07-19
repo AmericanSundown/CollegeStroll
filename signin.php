@@ -135,7 +135,7 @@ else
                 {
                     echo '
                     <article class="container box style3">
-                    You have supplied a wrong user/password combination. Please try again.
+                    You have supplied a wrong user/password combination. Please <a href="http://localhost/collegestroll/signin.php">try again.</a>
                     </article>';
                 }
                 else

@@ -102,7 +102,7 @@ else
                 echo '<div class="12u$"><textarea name="post_content" placeholder="Description"/></textarea></div>
                       <div class="12u$">
                       <ul class="actions">
-                      <li><input type="submit" value="Create topic" /></li>
+                      <li><input type="submit" value="Create College" /></li>
                       </ul>
                       </form>
                       </article>';

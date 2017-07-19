@@ -1,0 +1,49 @@
+
+			body{
+				background-color: powderblue ;
+				background-image: url("http://localhost/collegestroll/about-us-19/images/demo/long1.jpg") ;
+				background-attachment:fixed;
+				margin-left: 16px;
+			}
+				
+			
+		
+			div{
+   				float:left;
+    			margin-right:5px;
+				}
+
+			div > img{
+   				height:261px;
+    			width:260px;
+				}
+
+			p{
+    			text-align:center;
+    			color:white;
+    			font-family: Castellar;
+    			font-size: 20px;
+			}
+			#wow{
+				font-size: 50px;
+			};
+			header{
+    		padding: 1em;
+   		    color: white;
+    		background-color: black;
+    		clear: left;
+    		text-align: center;
+			}
+			footer{
+				color:white;
+			}
+			div.container {
+    		width: 100%;
+    		border: 1px solid black;
+			}
+			h1{
+				color: white;
+				text-align:center;
+				font-size: 55px;
+				font-family: Castellar;
+			}
